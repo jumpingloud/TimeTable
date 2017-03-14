@@ -1,9 +1,4 @@
 package prog;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +8,9 @@ import javax.swing.SwingUtilities;
 import gui.PlayerWindow;
 
 public class Player implements Serializable {
-
+	private static final long serialVersionUID = -7249989690362858923L;
+	
+	private static final String SEPARATOR = ";";
 	private String firstName;
 	private String lastName;
 	private int age;
@@ -145,6 +142,18 @@ public class Player implements Serializable {
 			}
 		});
 
+	}
+	
+	public String toData() {
+		return firstName + SEPARATOR + lastName + SEPARATOR + age;
+	}
+	
+	public static Player fromData(String data) {
+		String[] split = data.split(SEPARATOR);
+		
+		Player player = new Player(split[0], split[1], Integer.parseInt(split[2]));
+		
+		return player;
 	}
 	
 }

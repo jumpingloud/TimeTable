@@ -1,16 +1,12 @@
 package prog;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import org.omg.Messaging.SyncScopeHelper;
-
 public class Slot implements Serializable {
 
+	private static final long serialVersionUID = 1028455469126878802L;
 	SimpleDateFormat par = new SimpleDateFormat("HH:mm");
 	SimpleDateFormat ft = new SimpleDateFormat("HH:mm");
 
